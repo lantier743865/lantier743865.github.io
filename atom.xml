@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>吴晓龙</title>
-  <icon>https://www.gravatar.com/avatar/04b00e0ac35791d390b53c723b6ca492</icon>
+  <icon>https://www.gravatar.com/avatar/c3164500aaa6ba4b06d2c5617067c85e</icon>
   <subtitle>爱吃哈密瓜的程序员</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>吴晓龙</name>
-    <email>635912159@</email>
+    <email>635912159@qq.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
