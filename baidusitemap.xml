@@ -4,45 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/01/09/setCompoundDrawables%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</loc>
-    <lastmod>2018-01-09T11:02:58.094Z</lastmod>
-    <data>
-        <display>
-        <title>setCompoundDrawables不显示图片</title>
-        <pubTime>2018-01-09T10:59:47.000Z</pubTime>
-        
-        <tag>android bug</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/01/07/startService%E5%BC%95%E8%B5%B7%E7%9A%84FC/</loc>
-    <lastmod>2018-01-08T11:14:41.837Z</lastmod>
-    <data>
-        <display>
-        <title>startService引起的FC</title>
-        <pubTime>2018-01-06T16:25:20.000Z</pubTime>
-        
-        <tag>android bug</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-    
-  <url>
     <loc>http://yoursite.com/2018/01/06/%E5%BF%83%E5%BE%97/</loc>
-    <lastmod>2018-01-08T10:14:47.227Z</lastmod>
+    <lastmod>2018-01-09T11:12:48.333Z</lastmod>
     <data>
         <display>
         <title>这是我的第一篇博客</title>
@@ -53,12 +16,55 @@
          
            
              
-              <breadCrumb title="hexo" url="http://yoursite.com/categories/hexo/"/>
+              <breadCrumb title="心得" url="http://yoursite.com/categories/%E5%BF%83%E5%BE%97/"/>
           
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://yoursite.com/2018/01/07/startService%E5%BC%95%E8%B5%B7%E7%9A%84FC/</loc>
+    <lastmod>2018-01-09T11:12:31.476Z</lastmod>
+    <data>
+        <display>
+        <title>startService引起的FC</title>
+        <pubTime>2018-01-06T16:25:20.000Z</pubTime>
+        
+        <tag>bug</tag>
+         
+         
+           
+             
+              <breadCrumb title="bug" url="http://yoursite.com/categories/bug/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/01/09/setCompoundDrawables%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/</loc>
+    <lastmod>2018-01-09T11:11:46.357Z</lastmod>
+    <data>
+        <display>
+        <title>setCompoundDrawables不显示图片</title>
+        <pubTime>2018-01-09T10:59:47.000Z</pubTime>
+        
+        <tag>android bug</tag>
+         
+         
+           
+             
+              <breadCrumb title="bug" url="http://yoursite.com/categories/bug/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
     
     
     
