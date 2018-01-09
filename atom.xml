@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-08T11:14:41.837Z</updated>
+  <updated>2018-01-09T11:02:58.094Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>setCompoundDrawables不显示图片</title>
+    <link href="http://yoursite.com/2018/01/09/setCompoundDrawables%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
+    <id>http://yoursite.com/2018/01/09/setCompoundDrawables不显示图片/</id>
+    <published>2018-01-09T10:59:47.000Z</published>
+    <updated>2018-01-09T11:02:58.094Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题"><a href="#BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题" class="headerlink" title="BUG #28475 海外版登陆界面缺少Hi图标中代码不起作用的问题"></a><strong>BUG #28475 海外版登陆界面缺少Hi图标中代码不起作用的问题</strong></h3><h2 id="dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，"><a href="#dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，" class="headerlink" title="dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，"></a>dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，</h2><h2 id="然后调用AttrFactory-get，通过if-else判断"><a href="#然后调用AttrFactory-get，通过if-else判断" class="headerlink" title="然后调用AttrFactory.get，通过if else判断"></a>然后调用AttrFactory.get，通过if else判断</h2><p>mSkinAttr = new DrawableLeftAttr();</p><p>看代码知道最终调用setCompoundDrawables。通过debug发现已进入equas方法，</p><p>但最终并未成功加载图片到textView的左侧。</p><p>然后去看setCompoundDrawables源码，发现有这么一句注释。</p><p>```Sets the Drawables (if any) to appear to the left of, above, to the</p><ul><li>right of, and below the text. Use {@code null} if you do not want a</li><li>Drawable there. The Drawables must already have had</li><li>{@link Drawable#setBounds} called.</li></ul><p>skin.lib不能修改源码，只能写demo来验证是不是这个原因造成的。</p><p>布局这样子，能正常显示，运行起来也没有问题。</p><p>然后代码里修改，通过setCompoundDrawables在Textview左侧加图片，运行发现不能正常显示。</p><p>调用drawable.setBounds 后能够正常显示。</p><p>2、直接调用setCompoundDrawablesWithIntrinsicBounds方法，不用setBounds也能正常显示。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题&quot;&gt;&lt;a href=&quot;#BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题&quot; class=&quot;headerlink&quot; title=&quot;BUG #28475 海外版登陆界面缺少Hi图标中代
+      
+    
+    </summary>
+    
+    
+      <category term="android bug" scheme="http://yoursite.com/tags/android-bug/"/>
+    
+  </entry>
   
   <entry>
     <title>startService引起的FC</title>
