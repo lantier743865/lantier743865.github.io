@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-09T11:11:46.357Z</updated>
+  <updated>2018-01-11T06:31:04.386Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IPC方式的优缺点和适用场景</title>
+    <link href="http://yoursite.com/2018/01/11/IPC%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%92%8C%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    <id>http://yoursite.com/2018/01/11/IPC方式的优缺点和适用场景/</id>
+    <published>2018-01-11T06:29:19.000Z</published>
+    <updated>2018-01-11T06:31:04.386Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>名称</th><th>优点</th><th>缺点</th><th>适用场景</th></tr></thead><tbody><tr><td>Bundle</td><td>简单易用</td><td>只能传输Bundle支持的数据类型</td><td>四大组件间的进程间通信</td></tr><tr><td>文件共享</td><td>简单易用</td><td>不适合高并发场景，并且无法做到进程间的即时通信</td><td>无并发访问情形，交换简单的数据实时性不高的场景</td></tr><tr><td>AIDL</td><td>功能强大，支持一对多并发通信，支持实时通信</td><td>使用稍复杂，需处理好线程同步</td><td>一对多通信且有RPC需求</td></tr><tr><td>Messenager</td><td>功能一般，支持一对多串行通信，支持实时通信</td><td>不能很好的处理高并发情形，不支持RPC，数据通过Message进行传输，因此只能传输Bundle支持的数据类型</td><td>低并发的一对多即时通信，无RPC需求，或者无需返回结果的RPC需求</td></tr><tr><td>ContentProvider</td><td>在数据源访问方面功能强大，支持一对多并发数据共享，可通过call方法扩展其他操作</td><td>可以理解为受约束的AIDL，主要提供数据源的CRUD操作</td><td>一对多的进程间的数据共享</td></tr><tr><td>Socket</td><td>功能强大，可以通过网络传输字节流，支持一对多并发实时通信</td><td>实现细节稍有点繁琐，不支持杂直接的RPC</td><td>网络数据交换</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;优点&lt;/th&gt;
+&lt;th&gt;缺点&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bundle&lt;/td&gt;
+&lt;td&gt;简单易用&lt;/td&gt;
+&lt;td&gt;只能传输Bun
+      
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>setCompoundDrawables不显示图片</title>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="笔记,">
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="耐得住寂寞 守得住繁华">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴晓龙">
-<meta property="og:url" content="http://yoursite.com/tags/random/index.html">
+<meta name="description" content="名称 优点 缺点 适用场景     Bundle 简单易用 只能传输Bundle支持的数据类型 四大组件间的进程间通信   文件共享 简单易用 不适合高并发场景，并且无法做到进程间的即时通信 无并发访问情形，交换简单的数据实时性不高的场景   AIDL 功能强大，支持一对多并发通信，支持实时通信 使用稍复杂，需处理好线程同步 一对多通信且有RPC需求   Messenager 功能一般，支持">
+<meta name="keywords" content="笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IPC方式的优缺点和适用场景">
+<meta property="og:url" content="http://yoursite.com/2018/01/11/IPC方式的优缺点和适用场景/index.html">
 <meta property="og:site_name" content="吴晓龙">
-<meta property="og:description" content="耐得住寂寞 守得住繁华">
+<meta property="og:description" content="名称 优点 缺点 适用场景     Bundle 简单易用 只能传输Bundle支持的数据类型 四大组件间的进程间通信   文件共享 简单易用 不适合高并发场景，并且无法做到进程间的即时通信 无并发访问情形，交换简单的数据实时性不高的场景   AIDL 功能强大，支持一对多并发通信，支持实时通信 使用稍复杂，需处理好线程同步 一对多通信且有RPC需求   Messenager 功能一般，支持">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-11T06:31:04.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴晓龙">
-<meta name="twitter:description" content="耐得住寂寞 守得住繁华">
+<meta name="twitter:title" content="IPC方式的优缺点和适用场景">
+<meta name="twitter:description" content="名称 优点 缺点 适用场景     Bundle 简单易用 只能传输Bundle支持的数据类型 四大组件间的进程间通信   文件共享 简单易用 不适合高并发场景，并且无法做到进程间的即时通信 无并发访问情形，交换简单的数据实时性不高的场景   AIDL 功能强大，支持一对多并发通信，支持实时通信 使用稍复杂，需处理好线程同步 一对多通信且有RPC需求   Messenager 功能一般，支持">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/random/">
+  <link rel="canonical" href="http://yoursite.com/2018/01/11/IPC方式的优缺点和适用场景/">
 
 
 
 
 
-  <title>标签: random | 吴晓龙</title>
+  <title>IPC方式的优缺点和适用场景 | 吴晓龙</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,52 +291,215 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>random<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/11/IPC方式的优缺点和适用场景/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴晓龙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cn.bing.com/az/hprichbg/rb/StelvioPass_ROW15601071581_1920x1080.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓龙">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/06/心得/" itemprop="url">
-              
-                <span itemprop="name">这是我的第一篇博客</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">IPC方式的优缺点和适用场景</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-01-06T22:53:35+08:00" content="2018-01-06">
-          01-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T14:29:19+08:00">
+                2018-01-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bundle</td>
+<td>简单易用</td>
+<td>只能传输Bundle支持的数据类型</td>
+<td>四大组件间的进程间通信</td>
+</tr>
+<tr>
+<td>文件共享</td>
+<td>简单易用</td>
+<td>不适合高并发场景，并且无法做到进程间的即时通信</td>
+<td>无并发访问情形，交换简单的数据实时性不高的场景</td>
+</tr>
+<tr>
+<td>AIDL</td>
+<td>功能强大，支持一对多并发通信，支持实时通信</td>
+<td>使用稍复杂，需处理好线程同步</td>
+<td>一对多通信且有RPC需求</td>
+</tr>
+<tr>
+<td>Messenager</td>
+<td>功能一般，支持一对多串行通信，支持实时通信</td>
+<td>不能很好的处理高并发情形，不支持RPC，数据通过Message进行传输，因此只能传输Bundle支持的数据类型</td>
+<td>低并发的一对多即时通信，无RPC需求，或者无需返回结果的RPC需求</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>在数据源访问方面功能强大，支持一对多并发数据共享，可通过call方法扩展其他操作</td>
+<td>可以理解为受约束的AIDL，主要提供数据源的CRUD操作</td>
+<td>一对多的进程间的数据共享</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>功能强大，可以通过网络传输字节流，支持一对多并发实时通信</td>
+<td>实现细节稍有点繁琐，不支持杂直接的RPC</td>
+<td>网络数据交换</td>
+</tr>
+</tbody>
+</table>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/setCompoundDrawables不显示图片/" rel="next" title="setCompoundDrawables不显示图片">
+                <i class="fa fa-chevron-left"></i> setCompoundDrawables不显示图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -342,6 +507,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -600,6 +769,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
