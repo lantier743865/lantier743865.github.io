@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-11T06:31:04.386Z</updated>
+  <updated>2018-01-11T07:20:06.862Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android 8.0同步问题适配相关问题（联想）</title>
+    <link href="http://yoursite.com/2018/01/11/android-8-0%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98%E9%80%82%E9%85%8D%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%EF%BC%88%E8%81%94%E6%83%B3%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/01/11/android-8-0同步问题适配相关问题（联想）/</id>
+    <published>2018-01-11T07:19:23.000Z</published>
+    <updated>2018-01-11T07:20:06.862Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="android-8-0同步问题适配相关问题（联想）"><a href="#android-8-0同步问题适配相关问题（联想）" class="headerlink" title="android 8.0同步问题适配相关问题（联想）"></a>android 8.0同步问题适配相关问题（联想）</h4><p>由于访问<a href="http://clients3.google.com/generate_204失败，导致的WiFi和移动网络提示“已连接" target="_blank" rel="noopener">http://clients3.google.com/generate_204失败，导致的WiFi和移动网络提示“已连接</a> 但无法访问互联网”问题<br>，查看之前版本源码，网络验证并未作为条件记录在jobStatus中，从dump出来信息看是同步操作的条件不满足。</p><p>反向验证，关闭网络验证</p><h3 id="1、adb-shell-settings-put-global-captive-portal-detection-enabled-0"><a href="#1、adb-shell-settings-put-global-captive-portal-detection-enabled-0" class="headerlink" title="1、adb shell settings put global captive_portal_detection_enabled 0"></a>1、adb shell settings put global captive_portal_detection_enabled 0</h3><p>执行关闭这个命令后adb reboot网络上叉号消失，同步正常。</p><h3 id="2、打开vpn，访问谷歌正常，同步邮件正常。"><a href="#2、打开vpn，访问谷歌正常，同步邮件正常。" class="headerlink" title="2、打开vpn，访问谷歌正常，同步邮件正常。"></a>2、打开vpn，访问谷歌正常，同步邮件正常。</h3><p><img src="http://opq81riyh.bkt.clouddn.com/ConnectivityController" alt="源码"><br><img src="http://opq81riyh.bkt.clouddn.com/Undtaisfied" alt="源码"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;android-8-0同步问题适配相关问题（联想）&quot;&gt;&lt;a href=&quot;#android-8-0同步问题适配相关问题（联想）&quot; class=&quot;headerlink&quot; title=&quot;android 8.0同步问题适配相关问题（联想）&quot;&gt;&lt;/a&gt;android 8.0
+      
+    
+    </summary>
+    
+      <category term="bug" scheme="http://yoursite.com/categories/bug/"/>
+    
+    
+      <category term="bug" scheme="http://yoursite.com/tags/bug/"/>
+    
+  </entry>
   
   <entry>
     <title>IPC方式的优缺点和适用场景</title>
