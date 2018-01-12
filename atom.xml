@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-12T06:05:03.645Z</updated>
+  <updated>2018-01-12T06:09:28.866Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2018/01/12/Android-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
     <id>http://yoursite.com/2018/01/12/Android-项目构建过程/</id>
     <published>2018-01-12T06:04:05.000Z</published>
-    <updated>2018-01-12T06:05:03.645Z</updated>
+    <updated>2018-01-12T06:09:28.866Z</updated>
     
-    <content type="html"><![CDATA[<p>1、AAPT（Android Asset Packaging Tool）工具会打包应用中的资源文件，如AndroidManifest.xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会保持原来的形态，需要注意的是raw文件夹种的资源也会生成资源id。AAPT编译完成后会生成R.java文件。<br>2、AIDL工具会将所有的AIDL接口转化为java接口。<br>3、所有的java代码，包括R.java与aidl文件都会被java编译器编译成.class文件。<br>4、Dex工具会将上述产生的.class文件及第三方库及其他.class文件编译成.dex文件（dex文件是Dalvik虚拟机可以执行的格式），dex文件最终会被打包进APK文件。<br>5、ApkBuilder工具会将编译过的资源（如图片等）以及.dex文件打包成APK文件。<br>6、生成apk文件后，需要对其签名才可安装到设备，平时测试会使用debug keystore，当正式发布应用时必须使用release版的keysore对应用进行签名。<br>7、如果对APK正式签名，还需要使用zipalign工具对APK进行对齐操作，这样做的好处是当应用运行时会提高速度，但是相应会增加内存的开销。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="1-1、AAPT（Android-Asset-Packaging-Tool）工具会打包应用中的资源文件，如AndroidManifest-xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会保持原来的形态，需要注意的是raw文件夹种的资源也会生成资源id。AAPT编译完成后会生成R-java文件。"><a href="#1-1、AAPT（Android-Asset-Packaging-Tool）工具会打包应用中的资源文件，如AndroidManifest-xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会保持原来的形态，需要注意的是raw文件夹种的资源也会生成资源id。AAPT编译完成后会生成R-java文件。" class="headerlink" title="1. 1、AAPT（Android Asset Packaging Tool）工具会打包应用中的资源文件，如AndroidManifest.xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会保持原来的形态，需要注意的是raw文件夹种的资源也会生成资源id。AAPT编译完成后会生成R.java文件。"></a>1. 1、AAPT（Android Asset Packaging Tool）工具会打包应用中的资源文件，如AndroidManifest.xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会保持原来的形态，需要注意的是raw文件夹种的资源也会生成资源id。AAPT编译完成后会生成R.java文件。</h3><h3 id="2-2、AIDL工具会将所有的AIDL接口转化为java接口。"><a href="#2-2、AIDL工具会将所有的AIDL接口转化为java接口。" class="headerlink" title="2. 2、AIDL工具会将所有的AIDL接口转化为java接口。"></a>2. 2、AIDL工具会将所有的AIDL接口转化为java接口。</h3><h3 id="3-3、所有的java代码，包括R-java与aidl文件都会被java编译器编译成-class文件。"><a href="#3-3、所有的java代码，包括R-java与aidl文件都会被java编译器编译成-class文件。" class="headerlink" title="3. 3、所有的java代码，包括R.java与aidl文件都会被java编译器编译成.class文件。"></a>3. 3、所有的java代码，包括R.java与aidl文件都会被java编译器编译成.class文件。</h3><h3 id="4-4、Dex工具会将上述产生的-class文件及第三方库及其他-class文件编译成-dex文件（dex文件是Dalvik虚拟机可以执行的格式），dex文件最终会被打包进APK文件。"><a href="#4-4、Dex工具会将上述产生的-class文件及第三方库及其他-class文件编译成-dex文件（dex文件是Dalvik虚拟机可以执行的格式），dex文件最终会被打包进APK文件。" class="headerlink" title="4. 4、Dex工具会将上述产生的.class文件及第三方库及其他.class文件编译成.dex文件（dex文件是Dalvik虚拟机可以执行的格式），dex文件最终会被打包进APK文件。"></a>4. 4、Dex工具会将上述产生的.class文件及第三方库及其他.class文件编译成.dex文件（dex文件是Dalvik虚拟机可以执行的格式），dex文件最终会被打包进APK文件。</h3><h3 id="5-5、ApkBuilder工具会将编译过的资源（如图片等）以及-dex文件打包成APK文件。"><a href="#5-5、ApkBuilder工具会将编译过的资源（如图片等）以及-dex文件打包成APK文件。" class="headerlink" title="5. 5、ApkBuilder工具会将编译过的资源（如图片等）以及.dex文件打包成APK文件。"></a>5. 5、ApkBuilder工具会将编译过的资源（如图片等）以及.dex文件打包成APK文件。</h3><h3 id="6-6、生成apk文件后，需要对其签名才可安装到设备，平时测试会使用debug-keystore，当正式发布应用时必须使用release版的keysore对应用进行签名。"><a href="#6-6、生成apk文件后，需要对其签名才可安装到设备，平时测试会使用debug-keystore，当正式发布应用时必须使用release版的keysore对应用进行签名。" class="headerlink" title="6. 6、生成apk文件后，需要对其签名才可安装到设备，平时测试会使用debug keystore，当正式发布应用时必须使用release版的keysore对应用进行签名。"></a>6. 6、生成apk文件后，需要对其签名才可安装到设备，平时测试会使用debug keystore，当正式发布应用时必须使用release版的keysore对应用进行签名。</h3><h3 id="7-7、如果对APK正式签名，还需要使用zipalign工具对APK进行对齐操作，这样做的好处是当应用运行时会提高速度，但是相应会增加内存的开销。"><a href="#7-7、如果对APK正式签名，还需要使用zipalign工具对APK进行对齐操作，这样做的好处是当应用运行时会提高速度，但是相应会增加内存的开销。" class="headerlink" title="7. 7、如果对APK正式签名，还需要使用zipalign工具对APK进行对齐操作，这样做的好处是当应用运行时会提高速度，但是相应会增加内存的开销。"></a>7. 7、如果对APK正式签名，还需要使用zipalign工具对APK进行对齐操作，这样做的好处是当应用运行时会提高速度，但是相应会增加内存的开销。</h3>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;1、AAPT（Android Asset Packaging Tool）工具会打包应用中的资源文件，如AndroidManifest.xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件夹中的资源也会
+        &lt;h3 id=&quot;1-1、AAPT（Android-Asset-Packaging-Tool）工具会打包应用中的资源文件，如AndroidManifest-xml、layout布局中的xml等，并将xml文件编译为二进制形式，当然asset文件夹中的文件不会被编译，图片几raw文件
       
     
     </summary>
