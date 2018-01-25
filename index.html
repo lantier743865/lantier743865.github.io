@@ -786,7 +786,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/Activity启动流程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/基于8.0源码解析：Activity启动流程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴晓龙">
@@ -805,7 +805,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/17/Activity启动流程/" itemprop="url">Activity启动流程</a></h1>
+                <a class="post-title-link" href="/2018/01/17/基于8.0源码解析：Activity启动流程/" itemprop="url">Activity启动流程</a></h1>
         
 
         <div class="post-meta">
@@ -879,7 +879,7 @@
       
         
           
-            <h1 id="Activity启动流程"><a href="#Activity启动流程" class="headerlink" title="Activity启动流程"></a>Activity启动流程</h1><p>标签（空格分隔）： 未分类</p>
+            <h1 id="基于8-0源码解析：Activity启动流程"><a href="#基于8-0源码解析：Activity启动流程" class="headerlink" title="基于8.0源码解析：Activity启动流程"></a>基于8.0源码解析：Activity启动流程</h1><p>标签（空格分隔）： 未分类</p>
 <hr>
 <p>调用startActivity，会执行Activity中的startActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.startActivity(intent, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后调用它的重载方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent, @Nullable Bundle options)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (options != <span class="keyword">null</span>) &#123;</span><br><span class="line">startActivityForResult(intent, -<span class="number">1</span>, options);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// Note we want to go through this call for compatibility with</span></span><br><span class="line"><span class="comment">// applications that may have overridden the method.</span></span><br><span class="line">startActivityForResult(intent, -<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
