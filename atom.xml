@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-25T03:46:03.701Z</updated>
+  <updated>2018-01-29T06:20:34.343Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android动画讲解</title>
+    <link href="http://yoursite.com/2018/01/29/Android%E5%8A%A8%E7%94%BB%E8%AE%B2%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/01/29/Android动画讲解/</id>
+    <published>2018-01-29T03:43:21.000Z</published>
+    <updated>2018-01-29T06:20:34.343Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Android动画讲解"><a href="#Android动画讲解" class="headerlink" title="#Android动画讲解"></a>#Android动画讲解</h2><p><img src="http://opq81riyh.bkt.clouddn.com/%E5%8A%A8%E7%94%BB.png" alt=""><br><img src="http://opq81riyh.bkt.clouddn.com/%E5%8A%A8%E7%94%BB.mindnode.zip" alt="333"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Android动画讲解&quot;&gt;&lt;a href=&quot;#Android动画讲解&quot; class=&quot;headerlink&quot; title=&quot;#Android动画讲解&quot;&gt;&lt;/a&gt;#Android动画讲解&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://opq81riyh.bkt.c
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>基于8.0源码解析：bindService 启动过程</title>
