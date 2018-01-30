@@ -5,14 +5,19 @@
     
   <url>
     <loc>http://yoursite.com/2018/01/30/HashMap%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</loc>
-    <lastmod>2018-01-30T08:43:32.953Z</lastmod>
+    <lastmod>2018-01-30T08:44:58.472Z</lastmod>
     <data>
         <display>
         <title>HashMap实现原理</title>
         <pubTime>2018-01-30T08:32:52.000Z</pubTime>
         
+        <tag>“java源码解析”</tag>
+         
          
            
+             
+              <breadCrumb title="“java源码解析”" url="http://yoursite.com/categories/%E2%80%9Cjava%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E2%80%9D/"/>
+          
         </display>
     </data>
     </url>
