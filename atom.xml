@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-07T02:41:01.387Z</updated>
+  <updated>2018-02-08T14:35:24.048Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java面试题一</title>
+    <link href="http://yoursite.com/2018/02/08/java%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%80/"/>
+    <id>http://yoursite.com/2018/02/08/java面试题一/</id>
+    <published>2018-02-08T14:34:38.000Z</published>
+    <updated>2018-02-08T14:35:24.048Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="java面试题一"><a href="#java面试题一" class="headerlink" title="java面试题一"></a>java面试题一</h1><hr><p>###来看一道面试题，大家看看结果是多少？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x ,y;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        x--;</span><br><span class="line">        myMethod();</span><br><span class="line">        System.out.println(x + y++ + x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        y = x++ + ++x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="先不要看答案"><a href="#先不要看答案" class="headerlink" title="先不要看答案"></a>先不要看答案</h3><p>分析过程，static代码块中的是局部变量，所以是下x，y都是0；<br>main方法中x–后，执行mythod，此时x是-1，<br>执行x++后x++仍然是-1，然后此时x是0，再执行++x，那么++x是1，<br>那么y= -1+1=0；<br>于是x是1，y是0；<br>那么system.out.println中是1+0+1=2；<br>最终结果是2.</p><p>这道题很常见，却也很容易做错，大家体会考到的知识点。</p><p>不同的类加载器分别创建的同一个类的字节码数据属于完全不同的对象，没有任何关联。<br>当运行一个程序的时候，jvm启动，运行bootstrap classloader，该classloader加载java核心api（extclassloader和appclassloader也在此时被加载），然后调用extclassloader加载扩展api，最后appclassloader加载classpath目录下定义的class，这就是一个程序最基本的加载流程。<br>类加载过程使用父类委托模式，这样有三个原因：</p><ol><li>这样可以避免重复加载。</li><li>安全因素，防止加载自定义的classloader</li><li>一些重要的方法</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;java面试题一&quot;&gt;&lt;a href=&quot;#java面试题一&quot; class=&quot;headerlink&quot; title=&quot;java面试题一&quot;&gt;&lt;/a&gt;java面试题一&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;###来看一道面试题，大家看看结果是多少？&lt;br&gt;&lt;figure class=&quot;h
+      
+    
+    </summary>
+    
+      <category term="“java面试”" scheme="http://yoursite.com/categories/%E2%80%9Cjava%E9%9D%A2%E8%AF%95%E2%80%9D/"/>
+    
+    
+      <category term="“java面试”" scheme="http://yoursite.com/tags/%E2%80%9Cjava%E9%9D%A2%E8%AF%95%E2%80%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>反思自己身上的毛病</title>
