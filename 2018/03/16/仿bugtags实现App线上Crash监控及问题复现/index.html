@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴晓龙" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="仿bugtags实现App线上Crash监控及问题复现实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。大致的流程如下： ##下面按照项目的实现过程介绍怎么具体实现发生fc之后及时上传。 ##1、首先初始化BugMonitor工具BugMonitor.init(this);及小米推送MiPu">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿bugtags实现App线上Crash监控及问题复现">
+<meta property="og:url" content="http://yoursite.com/2018/03/16/仿bugtags实现App线上Crash监控及问题复现/index.html">
+<meta property="og:site_name" content="吴晓龙">
+<meta property="og:description" content="仿bugtags实现App线上Crash监控及问题复现实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。大致的流程如下： ##下面按照项目的实现过程介绍怎么具体实现发生fc之后及时上传。 ##1、首先初始化BugMonitor工具BugMonitor.init(this);及小米推送MiPu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/BugMonitor%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/upload.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/mipushmessage.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/crashInfo.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/step.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/bmob.png">
+<meta property="og:image" content="http://opq81riyh.bkt.clouddn.com/png.png">
+<meta property="og:updated_time" content="2018-03-16T13:16:03.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="仿bugtags实现App线上Crash监控及问题复现">
+<meta name="twitter:description" content="仿bugtags实现App线上Crash监控及问题复现实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。大致的流程如下： ##下面按照项目的实现过程介绍怎么具体实现发生fc之后及时上传。 ##1、首先初始化BugMonitor工具BugMonitor.init(this);及小米推送MiPu">
+<meta name="twitter:image" content="http://opq81riyh.bkt.clouddn.com/BugMonitor%E6%B5%81%E7%A8%8B.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/16/仿bugtags实现App线上Crash监控及问题复现/">
+
+
+
+
+
+  <title>仿bugtags实现App线上Crash监控及问题复现 | 吴晓龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴晓龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">爱吃哈密瓜的程序员</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/commonweal" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/仿bugtags实现App线上Crash监控及问题复现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴晓龙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opq81riyh.bkt.clouddn.com/666.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">仿bugtags实现App线上Crash监控及问题复现</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-16T21:15:18+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="仿bugtags实现App线上Crash监控及问题复现"><a href="#仿bugtags实现App线上Crash监控及问题复现" class="headerlink" title="仿bugtags实现App线上Crash监控及问题复现"></a>仿bugtags实现App线上Crash监控及问题复现</h1><h1 id="实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。"><a href="#实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。" class="headerlink" title="实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。"></a>实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。</h1><p>大致的流程如下：<br><img src="http://opq81riyh.bkt.clouddn.com/BugMonitor%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<p>##下面按照项目的实现过程介绍怎么具体实现发生fc之后及时上传。</p>
+<p>##1、首先初始化BugMonitor工具BugMonitor.init(this);及小米推送MiPushClient.registerPush(this, APP_ID, APP_KEY);和文件上传的工具Bmob.initialize(this,BMOB_APPID);（其实小米推送和文件上传可以自己后台实现，我是因为个人没有服务器，用的免费推送和文件存储服务，在此谢谢这些sdk公司）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">   public void onCreate() &#123;</span><br><span class="line">       super.onCreate();</span><br><span class="line">       BugMonitor.init(this);</span><br><span class="line">       Bmob.initialize(this,BMOB_APPID);</span><br><span class="line">       MiPushClient.registerPush(this, APP_ID, APP_KEY);</span><br><span class="line">       LoggerInterface newLogger = new LoggerInterface() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void setTag(String tag) &#123;</span><br><span class="line">               // ignore</span><br><span class="line">           &#125;</span><br><span class="line">           @Override</span><br><span class="line">           public void log(String content, Throwable t) &#123;</span><br><span class="line">               Log.d(TAG, &quot;----&gt;&gt;t&quot;+content, t);</span><br><span class="line">           &#125;</span><br><span class="line">           @Override</span><br><span class="line">           public void log(String content) &#123;</span><br><span class="line">               Log.d(TAG, &quot;----&gt;&gt;content&quot;+content);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;;</span><br><span class="line">       Logger.setLogger(this, newLogger);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>##2、在BugMonitor中初始化CrashHandler,因为安卓中可以通过这个Handler来捕捉crash信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void init(Context context) &#123;</span><br><span class="line">        mContext = context;</span><br><span class="line">        initCrashHandler(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static void initCrashHandler(Context context) &#123;</span><br><span class="line">        Thread.UncaughtExceptionHandler exceptionHandler = Thread.getDefaultUncaughtExceptionHandler();</span><br><span class="line">        CrashHandler crashHandler = new CrashHandler(context, exceptionHandler);</span><br><span class="line">        Thread.setDefaultUncaughtExceptionHandler(crashHandler);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>##3、CrashHandler 实现了 Thread.UncaughtExceptionHandler接口，并在uncaughtException方法中获取发生crash时的堆栈信息。</p>
+<p>##4、当发生crash的时候我们需要做的就是尽量收集有用的信息,下面我们仔细看下onCrash方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">    public void onCrash(String crashInfo) &#123;</span><br><span class="line">        Activity activity = ActivityHelper.getActivity();</span><br><span class="line">        long mills = System.currentTimeMillis();</span><br><span class="line">        dirName = TIME_FORMATTER.format(mills);</span><br><span class="line"></span><br><span class="line">        Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();</span><br><span class="line">        Point point = new Point();</span><br><span class="line">        defaultDisplay.getSize(point);</span><br><span class="line">        float density = activity.getResources().getDisplayMetrics().density;</span><br><span class="line"></span><br><span class="line">        String networkState = NetUtil.getNetworkState(BugMonitor.mContext);</span><br><span class="line">        PackageInfo info = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            info = BugMonitor.mContext.getPackageManager().getPackageInfo(BugMonitor.mContext.getPackageName(), 0);</span><br><span class="line">        &#125; catch (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        long freeMemory = MemoryUtil.getFreeMemory();</span><br><span class="line">        long totalMemory = MemoryUtil.getTotalMemory();</span><br><span class="line">        String cpuName = CPUUtil.getCpuName();</span><br><span class="line">        String curCpuFreq = CPUUtil.getCurCpuFreq();</span><br><span class="line">        String maxCpuFreq = CPUUtil.getMaxCpuFreq();</span><br><span class="line">        String minCpuFreq = CPUUtil.getMinCpuFreq();</span><br><span class="line">        int numCores = CPUUtil.getNumCores();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        boolean rooted = SystemInfoUtil.checkSuFile();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        activity.getWindow().getDecorView().setDrawingCacheEnabled(true);</span><br><span class="line">        Bitmap bmp = activity.getWindow().getDecorView().getDrawingCache();</span><br><span class="line">        BitmapHelper.saveBitmap(bmp, dirName);</span><br><span class="line">        final String s = CrashInfo.newInstance()</span><br><span class="line">                .setStackStrings(crashInfo)</span><br><span class="line">                .setScreenResolution(point)</span><br><span class="line">                .setDensity(density)</span><br><span class="line">                .setNetwork(networkState)</span><br><span class="line">                .setPackageInfo(info)</span><br><span class="line">                .setMemory(freeMemory,totalMemory)</span><br><span class="line">                .setCpuInfo(numCores,cpuName,curCpuFreq,maxCpuFreq)</span><br><span class="line">                .setIsRoot(rooted)</span><br><span class="line">                .flushString()</span><br><span class="line">                .toString();</span><br><span class="line">        saveLogToSDCard(s,&quot;crashInfo&quot;);</span><br><span class="line">        String step = StepQueueHelper.flushString();</span><br><span class="line">        Log.e(TAG, &quot;----&gt;&gt;step: &quot;+step );</span><br><span class="line">        saveLogToSDCard(step,&quot;step&quot;);</span><br><span class="line">        Log.e(TAG, s );</span><br><span class="line"></span><br><span class="line">        //1、将文件夹目录写入sp中，再次启动时读出其中的内容</span><br><span class="line">        //2、特殊情况：已启动就fc，根本来不及上传</span><br><span class="line">        Intent intent = new Intent(activity, UploadService.class);</span><br><span class="line">        activity.startService(intent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>##5、首先我们获取当前的activity，截下当前界面的图片，并收集收集系统版本，api，屏幕分辨率，屏幕密度，内存情况，网络情况，cpu，是否root过等等信息，并通过一个Builder模式构建出一个String。同时，将用户的使用步骤队列输出为一个String。（这部分是核心，大家可以看代码<a href="https://github.com/lantier743865/kso）" target="_blank" rel="noopener">https://github.com/lantier743865/kso）</a></p>
+<p>##6、关于使用步骤我们要看一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package android.com.bugmonitor.base;</span><br><span class="line"></span><br><span class="line">import android.com.bugmonitor.collector.BugMonitor;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.util.Log;</span><br><span class="line">import android.view.MotionEvent;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by wuxiaolong on 2018/3/9.</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">public class BaseActivity extends AppCompatActivity &#123;</span><br><span class="line">    private static final String TAG = &quot;BaseActivity&quot;;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onResume() &#123;</span><br><span class="line">        super.onResume();</span><br><span class="line">        BugMonitor.onResume(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onPause() &#123;</span><br><span class="line">        super.onPause();</span><br><span class="line">        BugMonitor.onPause(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean dispatchTouchEvent(MotionEvent ev) &#123;</span><br><span class="line">        BugMonitor.onDispatchTouchEvent(this,ev);</span><br><span class="line">        return super.dispatchTouchEvent(ev);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。"><a href="#在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。" class="headerlink" title="在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。"></a>在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">   public void onDispatchTouchEvent(Activity activity, MotionEvent event) &#123;</span><br><span class="line">       if(event.getAction() == 0) &#123;</span><br><span class="line">           this.lastX = event.getRawX();</span><br><span class="line">           this.lastY = event.getRawY();</span><br><span class="line">       &#125; else if(event.getAction() == 1) &#123;</span><br><span class="line">           float currentX = event.getRawX();</span><br><span class="line">           float currentY = event.getRawY();</span><br><span class="line">           if(this.lastX == currentX &amp;&amp; this.lastY == currentY) &#123;</span><br><span class="line">               View var5 = this.getView(activity.getWindow().getDecorView(), currentX, currentY);</span><br><span class="line">               Log.e(TAG, &quot;----&gt;&gt;var5: &quot;+var5 );</span><br><span class="line">               StepQueueHelper.enqueueStep(activity,var5);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>##其实，我们在获取到event后，可以通过当前的activity的decorView的位置算出当前是哪个view，这一点我也是从bugtags的源码看出来的，可以混淆过我看了半天才想明白。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void enqueueStep(Activity activity, View view) &#123;</span><br><span class="line">        String path  = view.getResources().getResourceName(view.getId());</span><br><span class="line">        String vName = path.substring(path.indexOf(&quot;/&quot;)+1);</span><br><span class="line">        String format = TIME_FORMATTER.format(System.currentTimeMillis());</span><br><span class="line">        stepBuilder.append(format)</span><br><span class="line">                .append(SPACE)</span><br><span class="line">                .append(activity.getClass().getName())</span><br><span class="line">                .append(SPACE)</span><br><span class="line">                .append(EVENT)</span><br><span class="line">                .append(VIEWID)</span><br><span class="line">                .append(vName)</span><br><span class="line">                .append(SPACE)</span><br><span class="line">                .append(TYPE)</span><br><span class="line">                .append(view.getClass().getName());</span><br><span class="line">        String s = stepBuilder.toString();</span><br><span class="line">        stepQueue.add(s);</span><br><span class="line">        stepBuilder.delete(0,stepBuilder.length());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。"><a href="#有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。" class="headerlink" title="有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。"></a>有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。</h2><p>##6、还有关键的一步时应用要挂掉了，怎么把信息传到服务端去？答案是另开一个service(在其他进程中)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(activity, UploadService.class);</span><br><span class="line">        activity.startService(intent);</span><br></pre></td></tr></table></figure></p>
+<p>#关于BugMonitor关键的部分讲完了，剩下的就是代码编写和实现了。</p>
+<p>#其中upload是一个接口，大家可以用自己的服务器规范去实现，我个人用了bmob的免费存储。大致的目录结构是这样的：<br><img src="http://opq81riyh.bkt.clouddn.com/upload.png" alt=""></p>
+<p>##7、我们看下最终的结果：<br><img src="http://opq81riyh.bkt.clouddn.com/mipushmessage.png" alt=""></p>
+<p>###这是携带设备信息的堆栈信息文件<br><img src="http://opq81riyh.bkt.clouddn.com/crashInfo.png" alt=""></p>
+<p>###这是用户的使用步骤文件<br><img src="http://opq81riyh.bkt.clouddn.com/step.png" alt=""></p>
+<p>###这是最终上传到服务端后的文件<br><img src="http://opq81riyh.bkt.clouddn.com/bmob.png" alt=""></p>
+<p>###这是发生crash时候的现场截屏<br><img src="http://opq81riyh.bkt.clouddn.com/png.png" alt=""></p>
+<p>#最后总结：</p>
+<ol>
+<li>工具是为了发生某些crash之后我们尽可能的多收集现场信息</li>
+<li>mipush和bmob是为了流程能够完善，最终我们还需要热修复来善后</li>
+<li>代码地址：![<a href="https://github.com/lantier743865/kso" target="_blank" rel="noopener">https://github.com/lantier743865/kso</a>]</li>
+<li>写的不好，大家请见谅，以后会继续努力。</li>
+</ol>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/快速排序/" rel="next" title="快速排序">
+                <i class="fa fa-chevron-left"></i> 快速排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://opq81riyh.bkt.clouddn.com/666.jpg" alt="吴晓龙">
+            
+              <p class="site-author-name" itemprop="name">吴晓龙</p>
+              <p class="site-description motion-element" itemprop="description">耐得住寂寞 守得住繁华</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lantier743865" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3166661920/profile?topnav=1&wvr=6" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58c9e40b61ff4b006c808011" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-globe"></i>掘金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/218df555dee7" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#仿bugtags实现App线上Crash监控及问题复现"><span class="nav-number">1.</span> <span class="nav-text">仿bugtags实现App线上Crash监控及问题复现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。"><span class="nav-number">2.</span> <span class="nav-text">实现线上crash监控，包含了手机堆栈信息和设备信息，及时上传，后台修复并启用推送进行热修复流程，重要的是要手机用户的使用步骤及现场截屏，以便更快的复现问题。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。"><span class="nav-number">2.1.</span> <span class="nav-text">在这BaseActivity中我们记录了每个界面的进入退出，及事件分发情况。我们重点看事件这部分，因为这部分会找到对应的view的id。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。"><span class="nav-number">2.2.</span> <span class="nav-text">有了view我们可以通过R文件获取它在我们项目中设置的id名称，这有助于我们找到对应的发生问题的空间。代码中一系列append是为了打印出来的信息格式化更容易分辨。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴晓龙</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
