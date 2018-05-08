@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/08/Android-%E5%BA%94%E7%94%A8%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84-Binder-%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90/</loc>
+    <lastmod>2018-05-08T12:34:20.158Z</lastmod>
+    <data>
+        <display>
+        <title>Android 应用工程师的 Binder 原理剖析</title>
+        <pubTime>2018-05-08T12:33:02.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="解析" url="http://yoursite.com/categories/%E8%A7%A3%E6%9E%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/03/16/%E4%BB%BFbugtags%E5%AE%9E%E7%8E%B0App%E7%BA%BF%E4%B8%8ACrash%E7%9B%91%E6%8E%A7%E5%8F%8A%E9%97%AE%E9%A2%98%E5%A4%8D%E7%8E%B0/</loc>
-    <lastmod>2018-03-16T13:16:03.143Z</lastmod>
+    <lastmod>2018-03-16T13:19:11.841Z</lastmod>
     <data>
         <display>
         <title>仿bugtags实现App线上Crash监控及问题复现</title>
