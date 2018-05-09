@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  一、Binder概述Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activity的启">
+<meta name="description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  ##一、Binder概述 Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activit">
 <meta name="keywords" content="android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 应用工程师的 Binder 原理剖析">
 <meta property="og:url" content="http://yoursite.com/2018/05/08/Android-应用工程师的-Binder-原理剖析/index.html">
 <meta property="og:site_name" content="吴晓龙">
-<meta property="og:description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  一、Binder概述Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activity的启">
+<meta property="og:description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  ##一、Binder概述 Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activit">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_1.png">
 <meta property="og:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_2.png">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/binder_ipc_2.png">
 <meta property="og:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/binder_ipc_4.png">
 <meta property="og:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/binder_ipc_5.png">
-<meta property="og:updated_time" content="2018-05-09T03:01:46.877Z">
+<meta property="og:updated_time" content="2018-05-09T03:06:12.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 应用工程师的 Binder 原理剖析">
-<meta name="twitter:description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  一、Binder概述Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activity的启">
+<meta name="twitter:description" content="Android 应用工程师的 Binder 原理剖析标签（空格分隔）： Binder  ##一、Binder概述 Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）1、为什么必须理解Binder？ 为什么Activity间传递对象需要序列化？ Activit">
 <meta name="twitter:image" content="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_1.png">
 
 
@@ -403,7 +403,8 @@
       
         <h1 id="Android-应用工程师的-Binder-原理剖析"><a href="#Android-应用工程师的-Binder-原理剖析" class="headerlink" title="Android 应用工程师的 Binder 原理剖析"></a>Android 应用工程师的 Binder 原理剖析</h1><p>标签（空格分隔）： Binder</p>
 <hr>
-<h2 id="一、Binder概述"><a href="#一、Binder概述" class="headerlink" title="一、Binder概述"></a>一、Binder概述</h2><h3 id="Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）"><a href="#Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）" class="headerlink" title="Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）"></a>Binder是一种进程间通信机制，基于开源的OpenBinder实现（<a href="http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）" target="_blank" rel="noopener">http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）</a></h3><h3 id="1、为什么必须理解Binder？"><a href="#1、为什么必须理解Binder？" class="headerlink" title="1、为什么必须理解Binder？"></a>1、为什么必须理解Binder？</h3><ol>
+<p>##一、Binder概述</p>
+<h3 id="Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）"><a href="#Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）" class="headerlink" title="Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）"></a>Binder是一种进程间通信机制，基于开源的OpenBinder实现（<a href="http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）" target="_blank" rel="noopener">http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）</a></h3><h3 id="1、为什么必须理解Binder？"><a href="#1、为什么必须理解Binder？" class="headerlink" title="1、为什么必须理解Binder？"></a>1、为什么必须理解Binder？</h3><ol>
 <li>为什么Activity间传递对象需要序列化？</li>
 <li>Activity的启动流程是什么样？</li>
 <li>四大组件底层的通信机制是怎么样的？</li>
@@ -426,7 +427,8 @@
 <li>稳定性：Binder是基于C/S架构的(客户端Client和服务端Server组成架构，Client端有什么需求，直接发送给Server端去完成，架构清晰明朗，Server端与Clent端相对独立，稳定性较好)；而共享内存实现方式复杂，没有客户与服务端之别，需要充分考虑到访问临界资源的并发同步问题，否则可能会出现死锁等问题；从稳定性角度看，Binder架构优越于共享内存。</li>
 <li>安全性：传统Linux IPC的接收方无法获得对方进程可靠的UID/PID,从而无法鉴别对方身份；而Android作为一个开放的开源体系，拥有非常多的开发平台，App开源甚广，因此手机的安全显得额外重要；对于普通用户，绝不希望从App商店下载偷窥隐私数据、后台造成手机耗电等等问题，传统的Linux IPC无任何保护措施，完全由上层协议来确保。Android为每个按照你黄浩的APp分配了自己的UID，故而进程的UID是鉴别金恒身份的重要标志。传统的IPC只能由用户在数据包中填入UID/PID，但这样不可靠，容易被恶意程序利用。可靠的身份标识只有由IPC机制在内核在内核中添加。其次传统的IPC访问接入点是开放的，只要知道这些接入点的程序都可以和对端建立连接，不管怎样都无法阻止恶意程序通过猜测接收方地址获得连接。同时Binder既支持实名Binder，又支持匿名Binder，安全性高。</li>
 </ul>
-<h2 id="二、Linux下传统的进程间通信原理"><a href="#二、Linux下传统的进程间通信原理" class="headerlink" title="二、Linux下传统的进程间通信原理"></a>二、Linux下传统的进程间通信原理</h2><p><img src="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_1.png" alt="Linux背景知识"></p>
+<p>##二、Linux下传统的进程间通信原理</p>
+<p><img src="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_1.png" alt="Linux背景知识"></p>
 <p><img src="http://ocjtywvav.bkt.clouddn.com/blog/android/binder/linux_ipc_2.png" alt="传统IPC通信原理"></p>
 <ul>
 <li>进程隔离 </li>
@@ -443,7 +445,7 @@
 <p>系统调用主要通过如下两个函数实现：<br>copy_from_user()//将数据从用户空间拷贝到内核空间<br>copy_to_user()//将数据从内核空间拷贝到用户空间</p>
 <p>通常的做法是消息发送方将要发送的数据存放在内存缓存区中，通过系统调用进入内核态。然后内核程序在内核空间分配内存，开辟一块内核缓存区，调用copy_from_user()函数将数据从用户空间的内存缓存区拷贝到内和空间的内存缓存区中。同样的，接收方进程在接收数据时在自己的用户空间开辟一块内存缓存区，然后内核程序调用copy_to_user()函数将数据从内核缓存区起拷贝到接收进程的内存缓存区。这样数据发送方进程和数据接收方进程就完成了一次数据传输，我们称完成了一次进程间通信。</p>
 <p>####传统的IPC通信方式有两个问题：<br>1、性能低下,一次数据传递需要经历：内存缓存区–&gt;内存缓存区–&gt;内存缓存区，需要2次数据拷贝；<br>2、接收数据的缓存区由数据接收进程提供，但是接收进程并不知道需要多大的空间来存放将要传递过来的数据，因此只能开辟尽可能打的内存空间或者先调用API接收消息来获取消息体的大小，这两种做法不是浪费空间就是浪费时间。</p>
-<h2 id="3、Binder跨进程通信原理"><a href="#3、Binder跨进程通信原理" class="headerlink" title="3、Binder跨进程通信原理"></a>3、Binder跨进程通信原理</h2><p><a href="https://blog.csdn.net/boyupeng/article/details/47011383" target="_blank" rel="noopener">Android Binder机制原理（史上最强理解，没有之一）</a></p>
+<p>##三、Binder跨进程通信原理<br><a href="https://blog.csdn.net/boyupeng/article/details/47011383" target="_blank" rel="noopener">Android Binder机制原理（史上最强理解，没有之一）</a></p>
 <ol>
 <li>动态内核可加载模块 &amp;&amp; 内存映射</li>
 </ol>
@@ -489,7 +491,8 @@
 <li>Binder：java层的Binder类，代表队额其实就是Binder本地对象。BinderProxy类是Binder类的一个内部类，它代表远程进程的Binder对象的本地代理；这两个类都继承自IBinder，因而都具有跨进程传输的能力；实际上，在跨进程的视乎，Binder驱动会自动完成这两个对象的转换。</li>
 <li>Stub：<br>AIDL的时候，编译工具会给我们生成一个名为Stub的静态内部类，这个类继承了Binder，说明它是一个Binder本地对象，它实现了Interface接口，表明它具有Server承诺给Client的能力；Stub是一个抽象类，具体的IIterface的相关实现需要开发者自己实现。</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<p>##五、总结</p>
+<ul>
 <li>Binder使用了面向对象的思想来描述作为访问接入点的Binder及其在Client中的入口。Binder是一个实体位于Server中的对象，该对象提供了一套方法用以实现对服务的请求，如同类的成员函数。面向对象思想的引入将进程间通信转化为通过对某个Binder对象的引用调用该对象的方法，而其独特之处在于Binder对象是一个可以跨进程引用的对象，他的实体位于一个进程中，而它的引用却遍布于系统给的各个进程中。这个引用和java中的引用一样既可以是强引用也可以是弱类型，而且可以从一个进程传给其他进程，让大家都能访问同意server，就像讲一个对象或引用赋值给另一个引用一样。Binder模糊了进程边界，淡化了进程间通信过程，整个系统仿佛运行与同一个面向对象的程序之中。形形色色的Binder对象以及星罗密布的引用仿佛粘接各个应用程序的胶水，这也是Binder在英文里的原意。（<strong>当然面向对象只是针对应用程序而言，对于Binder驱动和内核其它模块一样使用C语言实现，没有类和对象的概念。Binder驱动为面向对象的进程间通信提供底层支持</strong>。）</li>
 </ul>
       
@@ -698,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-应用工程师的-Binder-原理剖析"><span class="nav-number">1.</span> <span class="nav-text">Android 应用工程师的 Binder 原理剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Binder概述"><span class="nav-number">1.1.</span> <span class="nav-text">一、Binder概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）"><span class="nav-number">1.1.1.</span> <span class="nav-text">Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、为什么必须理解Binder？"><span class="nav-number">1.1.2.</span> <span class="nav-text">1、为什么必须理解Binder？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#要弄清楚上面一系列问题，就必须先理解Binder通信机制。"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">要弄清楚上面一系列问题，就必须先理解Binder通信机制。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity、Service、Broadcast-Receiver、Content-Provider四大组件有时运行在不同进程，进程间通信依赖于Binder-IPC机制。"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Activity、Service、Broadcast Receiver、Content Provider四大组件有时运行在不同进程，进程间通信依赖于Binder IPC机制。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android系统对应用层提供的各种服务：-ActivityManagerService、PackageManagerService等都是基于Binder-IPC机制实现。"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Android系统对应用层提供的各种服务： ActivityManagerService、PackageManagerService等都是基于Binder IPC机制实现。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Android系统为什么用Binder？"><span class="nav-number">1.1.3.</span> <span class="nav-text">2、Android系统为什么用Binder？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对比Linux进程间IPC方式："><span class="nav-number">1.1.3.1.</span> <span class="nav-text">对比Linux进程间IPC方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要是："><span class="nav-number">1.1.3.2.</span> <span class="nav-text">主要是：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Linux下传统的进程间通信原理"><span class="nav-number">1.2.</span> <span class="nav-text">二、Linux下传统的进程间通信原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、Binder跨进程通信原理"><span class="nav-number">1.3.</span> <span class="nav-text">3、Binder跨进程通信原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一次完整的Binder-IPC-通信过程通常是这样："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">一次完整的Binder IPC 通信过程通常是这样：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clent-Server-ServerManager-驱动"><span class="nav-number">1.3.1.</span> <span class="nav-text">Clent/Server/ServerManager/驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder通信过程"><span class="nav-number">1.3.2.</span> <span class="nav-text">Binder通信过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder通信中的代理模式"><span class="nav-number">1.3.3.</span> <span class="nav-text">Binder通信中的代理模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder的完整定义"><span class="nav-number">1.3.4.</span> <span class="nav-text">Binder的完整定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、手动编码实现跨进程调用"><span class="nav-number">1.4.</span> <span class="nav-text">五、手动编码实现跨进程调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-应用工程师的-Binder-原理剖析"><span class="nav-number">1.</span> <span class="nav-text">Android 应用工程师的 Binder 原理剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder是一种进程间通信机制，基于开源的OpenBinder实现（http-www-angryredplanet-com-hackbod-openbinder-docs-html-）"><span class="nav-number">1.0.1.</span> <span class="nav-text">Binder是一种进程间通信机制，基于开源的OpenBinder实现（http://www.angryredplanet.com/~hackbod/openbinder/docs/html/）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、为什么必须理解Binder？"><span class="nav-number">1.0.2.</span> <span class="nav-text">1、为什么必须理解Binder？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#要弄清楚上面一系列问题，就必须先理解Binder通信机制。"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">要弄清楚上面一系列问题，就必须先理解Binder通信机制。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity、Service、Broadcast-Receiver、Content-Provider四大组件有时运行在不同进程，进程间通信依赖于Binder-IPC机制。"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">Activity、Service、Broadcast Receiver、Content Provider四大组件有时运行在不同进程，进程间通信依赖于Binder IPC机制。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android系统对应用层提供的各种服务：-ActivityManagerService、PackageManagerService等都是基于Binder-IPC机制实现。"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">Android系统对应用层提供的各种服务： ActivityManagerService、PackageManagerService等都是基于Binder IPC机制实现。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Android系统为什么用Binder？"><span class="nav-number">1.0.3.</span> <span class="nav-text">2、Android系统为什么用Binder？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对比Linux进程间IPC方式："><span class="nav-number">1.0.3.1.</span> <span class="nav-text">对比Linux进程间IPC方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要是："><span class="nav-number">1.0.3.2.</span> <span class="nav-text">主要是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一次完整的Binder-IPC-通信过程通常是这样："><span class="nav-number">1.0.3.3.</span> <span class="nav-text">一次完整的Binder IPC 通信过程通常是这样：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clent-Server-ServerManager-驱动"><span class="nav-number">1.0.4.</span> <span class="nav-text">Clent/Server/ServerManager/驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder通信过程"><span class="nav-number">1.0.5.</span> <span class="nav-text">Binder通信过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder通信中的代理模式"><span class="nav-number">1.0.6.</span> <span class="nav-text">Binder通信中的代理模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binder的完整定义"><span class="nav-number">1.0.7.</span> <span class="nav-text">Binder的完整定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、手动编码实现跨进程调用"><span class="nav-number">1.1.</span> <span class="nav-text">五、手动编码实现跨进程调用</span></a></li></ol></div>
             
 
           </div>
