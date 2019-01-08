@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-23T05:47:40.905Z</updated>
+  <updated>2019-01-08T01:11:45.373Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两数之和</title>
+    <link href="http://yoursite.com/2019/01/08/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <id>http://yoursite.com/2019/01/08/两数之和/</id>
+    <published>2019-01-08T01:09:34.000Z</published>
+    <updated>2019-01-08T01:11:45.373Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数组一：两数之和"><a href="#数组一：两数之和" class="headerlink" title="数组一：两数之和"></a>数组一：两数之和</h1><p>标签（空格分隔）： 数据结构</p><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package array;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 面 试 题 1 : 两数之和</span><br><span class="line"> *</span><br><span class="line"> * 给定一个整型数组，是否能找出其中的两个数使其和为某个指定的值?</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * 举例</span><br><span class="line"> * 输入数组为&#123;1，5, 7, 3&#125;以及指定的目标值为10,我们可以从中找出两个数3 和 7, 和 为 10。</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * 通过排序让复杂度降至O(n*logn)</span><br><span class="line"> */</span><br><span class="line">public class Test01 &#123;</span><br><span class="line"></span><br><span class="line">    public static boolean hasSum(int[] arr, int target) &#123;</span><br><span class="line">        boolean res = false;</span><br><span class="line">        //参数校验</span><br><span class="line">        if (arr == null || arr.length &lt; 2) &#123;</span><br><span class="line">            return res;</span><br><span class="line">        &#125;</span><br><span class="line">        //对数组排序</span><br><span class="line">        Arrays.sort(arr);</span><br><span class="line">        int left = 0;</span><br><span class="line">        int right = arr.length -1;</span><br><span class="line">        while (left != right) &#123;</span><br><span class="line">           int sum =  arr[left] + arr[right];</span><br><span class="line">           if (sum &gt; target) &#123; //目标值过小，向前移动尾部指针，减小两数之和</span><br><span class="line">               right --;</span><br><span class="line">           &#125; else if (sum &lt; target) &#123;//目标值过大，向后移动头部指针，增加两数之和</span><br><span class="line">               left ++;</span><br><span class="line">           &#125; else &#123;</span><br><span class="line">               res = true;</span><br><span class="line">               break;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;数组一：两数之和&quot;&gt;&lt;a href=&quot;#数组一：两数之和&quot; class=&quot;headerlink&quot; title=&quot;数组一：两数之和&quot;&gt;&lt;/a&gt;数组一：两数之和&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 数据结构&lt;/p&gt;
+&lt;hr&gt;
+&lt;figure class=&quot;highlig
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>学习心得</title>
@@ -505,31 +528,6 @@
     
     
       <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>setCompoundDrawables不显示图片</title>
-    <link href="http://yoursite.com/2018/01/09/setCompoundDrawables%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87/"/>
-    <id>http://yoursite.com/2018/01/09/setCompoundDrawables不显示图片/</id>
-    <published>2018-01-09T10:59:47.000Z</published>
-    <updated>2018-01-09T11:11:46.357Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题"><a href="#BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题" class="headerlink" title="BUG #28475 海外版登陆界面缺少Hi图标中代码不起作用的问题"></a><strong>BUG #28475 海外版登陆界面缺少Hi图标中代码不起作用的问题</strong></h3><h2 id="dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，"><a href="#dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，" class="headerlink" title="dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，"></a>dynamicAddView会调用BaseActivity的dynamicAddSkinEnableView，</h2><h2 id="然后调用AttrFactory-get，通过if-else判断"><a href="#然后调用AttrFactory-get，通过if-else判断" class="headerlink" title="然后调用AttrFactory.get，通过if else判断"></a>然后调用AttrFactory.get，通过if else判断</h2><p>mSkinAttr = new DrawableLeftAttr();</p><p>看代码知道最终调用setCompoundDrawables。通过debug发现已进入equas方法，</p><p>但最终并未成功加载图片到textView的左侧。</p><p>然后去看setCompoundDrawables源码，发现有这么一句注释。</p><p>```Sets the Drawables (if any) to appear to the left of, above, to the</p><ul><li>right of, and below the text. Use {@code null} if you do not want a</li><li>Drawable there. The Drawables must already have had</li><li>{@link Drawable#setBounds} called.</li></ul><p>skin.lib不能修改源码，只能写demo来验证是不是这个原因造成的。</p><p>布局这样子，能正常显示，运行起来也没有问题。</p><p>然后代码里修改，通过setCompoundDrawables在Textview左侧加图片，运行发现不能正常显示。</p><p>调用drawable.setBounds 后能够正常显示。</p><p>2、直接调用setCompoundDrawablesWithIntrinsicBounds方法，不用setBounds也能正常显示。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题&quot;&gt;&lt;a href=&quot;#BUG-28475-海外版登陆界面缺少Hi图标中代码不起作用的问题&quot; class=&quot;headerlink&quot; title=&quot;BUG #28475 海外版登陆界面缺少Hi图标中代
-      
-    
-    </summary>
-    
-      <category term="bug" scheme="http://yoursite.com/categories/bug/"/>
-    
-    
-      <category term="android bug" scheme="http://yoursite.com/tags/android-bug/"/>
     
   </entry>
   
