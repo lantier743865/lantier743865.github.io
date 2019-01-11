@@ -303,6 +303,129 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/滴滴/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴晓龙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opq81riyh.bkt.clouddn.com/666.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/11/滴滴/" itemprop="url">滴滴</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-11T11:12:26+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="滴滴"><a href="#滴滴" class="headerlink" title="滴滴"></a>滴滴</h1><p>标签（空格分隔）： interview</p>
+<hr>
+<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><p>1、四中引用的区别：强引用、软引用、弱引用、虚引用<br>2、String、StringBuffer与StringBuilder之间区别<br>3、String a = “AB”, String b = “A” + “B”,Sting c = new String(“AB”)<br>这三个是否相等，为什么？<br>4、java中的线程池，核心参数，怎么处理的<br>5、AsyncTask是线程池吗？大概流程，线程池怎么创建的，核心参数怎么定的,线程怎么切换的，rannable和callable的区别。<br>6、多线程同步，volatile。单例为什么要保证volatile？和syncronized有什么区别？java虚拟机中多线程怎么对变量进行读取的？<br>7、thradlocal的原理，key是什么？<br>8、hashmap的数据结构？树是什么树？hashmap在多线程有什么问题？<br>9、lrucache？linkedHashmap？<br>10、sparseArray？查找怎么查找？复杂度？hashmap不考虑hash冲突时间复杂度是多少？<br>11、迭代器遍历和for循环遍历有什么区别？</p>
+<h3 id="android"><a href="#android" class="headerlink" title="android"></a>android</h3><p>1、okhttp原理，call对象是什么？realcall是普通类？有几个拦截器，都有哪些？okio原理？怎么处理缓存，缓存机制，怎么判断缓存过期?<br>线程池？<br>2、retrofit？核心思想是什么？<br>3、rxjava<br>4、intentservice，handlerthread跟普通thread有什么区别？<br>5、handler中post(rannable)和sendmessage有什么区别？looper从哪里取rannable？looper取消息是死循环吗？looper为什么不会阻塞用户操作，界面渲染，卡死主线程？handler在子线程创建有什么问题？主线程为什么不用创建？<br>6、oom都有哪些场景？讲一下内存泄漏？怎么解决内存泄漏？leakcanary怎么检测到内存泄漏的？<br>7、如何定义一个对象可以被回收？有哪些可以作为gcroot的节点？<br>8、jvm回收的算法？新生代假如内存没满不配置，一定是15次吗？都有哪些算法（标记整理，复制，标记清除）？major gc和full gc有什么区别？<br>9、android中自定义view的核心方法？canvas和paint分别是干嘛的？<br>10、onmeasure中有哪些测量模式？<br>11、android性能优化分别做了哪些？过度渲染怎么判断？怎么避免？<br>12、recylerview滑动到item，怎么保证滑动到的时候手松开，保证显示的是完整的item？<br>13、git rebase 和merge区别？<br>14、http三次握手，为什么需要三次？四次挥手，为什么需要四次？<br>15、http常见的header有哪些？charles<br>16、什么是AOP？</p>
+<h3 id="滴滴二面"><a href="#滴滴二面" class="headerlink" title="滴滴二面"></a>滴滴二面</h3><p>1、做android开发多久了？做过日志系统，怎么做的？<br>2、你清楚android事件传递流程吗？<br>3、blockcanary怎么做的？有现成的为什么还要自己再封装一个？looper和handler的关系？handlermessage有一部分是c实现的，native代码做什么用的，功能是什么，作用是什么？<br>4、解决过重构中的难题？是什么样的难题？<br>5、app启动的时候数据比较多的时候会比较慢，怎么解决这个问题的？（数据库比较大的时候，怎么解决启动速度），通常优化查询速度怎么做的？（一次读入大量数据，查询性能怎么做的），能用int不用string原理是什么？groupby会用吗？like，搜索词做不做预处理？做一次查询最长的是多长？没有对sqllite做过优化吗？当sql数据变得越来越多的时候怎么处理？几个db？拆表的目的是什么？拆数据库的目的是什么？数据库大了后启动速度变慢怎么解决？<br>6、从ui上怎么做启动优化的？两个activity之间跳转的时间节省多少？viewstub？<br>7、intentServise？了解跨进程吗？aidl原理？Binder原理？Binder的优点是什么？socekt为什么需要两次？<br>8、我如何画一条虚线？paint设置什么属性？还有别的实现方式吗？shape了解过吗？<br>9、怎么写一个自定义view？并且把view的属性暴露给xml用？怎么定义一个自定义view的主题（theme）？</p>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/两数之和3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1594,192 +1717,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/自我介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴晓龙">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://opq81riyh.bkt.clouddn.com/666.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓龙">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/13/自我介绍/" itemprop="url">自我介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-13T23:54:24+08:00">
-                2018-02-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/个人/" itemprop="url" rel="index">
-                    <span itemprop="name">个人</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.什么样的异性不考虑：</p>
-<blockquote>
-<ul>
-<li>异性朋友多,常跟异性玩的</li>
-<li>公主病，嘴比较恶毒的</li>
-<li>夜不归宿</li>
-<li>无诚信，承诺过的不去兑现</li>
-<li>只享受被追的过程，不会付出不给反馈</li>
-</ul>
-</blockquote>
-<p>2.我是什么样的人：</p>
-<blockquote>
-<ul>
-<li>我可以坐十几个小时去跟朋友吃顿饭，然后回来上班，因为我认为值得</li>
-<li>在不熟悉的人面前我话少，尤其女生面前我没有话题可说，熟人面前我特别逗比，喜欢开玩笑说段子，基本无拘束</li>
-<li>我重视诚信，即使花费代价也要兑现</li>
-<li>不喜欢争斗，好静，但也喜欢爬山，和熟人聚会</li>
-</ul>
-</blockquote>
-<p>3.我的生活习惯：</p>
-<blockquote>
-<ul>
-<li>喜欢旅游，港澳台、云南、成都、重庆、浙江、江苏、山东、河南、甘肃、山西、贵州等都去玩过，这方面我比较擅长</li>
-<li>喜欢吃，有时候出去旅游就是为了尝尝各地的美食小吃，而且超级喜欢吃水果，特别是哈密瓜，经常去海底捞就是为了吃他们的哈密瓜</li>
-<li>以前喜欢看电视剧，都市、古装、韩剧都看，特别喜欢越狱，因为他我喜欢上工程师，所以我现在也是一名工程师了，只是现在工作了，所以很少抽出时间看，放假的时候还会看</li>
-<li>我比较挑食，吃饭经常会剩饭，所以不喜欢去别人家做客</li>
-</ul>
-</blockquote>
-<p>4.我的兴趣爱好：</p>
-<blockquote>
-<ul>
-<li>羽毛球、网球、足球、篮球我都在大学学过，但也就是很业余的水平</li>
-<li>爬山，爬过泰山、华山，希望以后有机会去爬更多的山</li>
-<li>爱看博客，技术类的喜欢上掘金和csdn，也会订阅微信公众号看。</li>
-<li>喜欢听粤语歌曲，比如杨千嬅、谢安琪等等</li>
-</ul>
-</blockquote>
-<p>5.理想异性：</p>
-<blockquote>
-<ul>
-<li>有信念，能一起走完下半生</li>
-<li>遇上挫折和问题能商量想办法，不会气急败坏</li>
-<li>对于别人的付出能有反馈，不是一味接受</li>
-<li>生活习惯好，能做到自律</li>
-</ul>
-</blockquote>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1832,7 +1769,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
