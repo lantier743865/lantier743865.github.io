@@ -4,15 +4,20 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/01/11/%E7%99%BE%E5%BA%A6/</loc>
-    <lastmod>2019-01-11T08:00:17.784Z</lastmod>
+    <loc>http://yoursite.com/2019/01/11/%E6%BB%B4%E6%BB%B4/</loc>
+    <lastmod>2019-01-11T11:01:11.558Z</lastmod>
     <data>
         <display>
-        <title>百度</title>
-        <pubTime>2019-01-11T07:59:53.000Z</pubTime>
+        <title>滴滴</title>
+        <pubTime>2019-01-11T03:12:26.000Z</pubTime>
         
+        <tag>面试题</tag>
+         
          
            
+             
+              <breadCrumb title="面试题" url="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+          
         </display>
     </data>
     </url>
@@ -20,29 +25,59 @@
     
   <url>
     <loc>http://yoursite.com/2019/01/11/%E7%BE%8E%E5%9B%A2/</loc>
-    <lastmod>2019-01-11T05:20:27.771Z</lastmod>
+    <lastmod>2019-01-11T11:01:00.668Z</lastmod>
     <data>
         <display>
         <title>美团</title>
         <pubTime>2019-01-11T05:20:11.000Z</pubTime>
         
+        <tag>面试题</tag>
+         
          
            
+             
+              <breadCrumb title="面试题" url="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+          
         </display>
     </data>
     </url>
 
     
   <url>
-    <loc>http://yoursite.com/2019/01/11/%E6%BB%B4%E6%BB%B4/</loc>
-    <lastmod>2019-01-11T03:12:55.761Z</lastmod>
+    <loc>http://yoursite.com/2019/01/11/%E7%99%BE%E5%BA%A6/</loc>
+    <lastmod>2019-01-11T11:00:52.858Z</lastmod>
     <data>
         <display>
-        <title>滴滴</title>
-        <pubTime>2019-01-11T03:12:26.000Z</pubTime>
+        <title>百度</title>
+        <pubTime>2019-01-11T07:59:53.000Z</pubTime>
         
+        <tag>面试题</tag>
+         
          
            
+             
+              <breadCrumb title="面试题" url="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/01/11/%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D/</loc>
+    <lastmod>2019-01-11T11:00:44.989Z</lastmod>
+    <data>
+        <display>
+        <title>蚂蚁金服</title>
+        <pubTime>2019-01-11T10:58:11.000Z</pubTime>
+        
+        <tag>面试题</tag>
+         
+         
+           
+             
+              <breadCrumb title="面试题" url="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+          
         </display>
     </data>
     </url>
