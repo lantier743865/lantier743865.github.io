@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-13T04:15:06.997Z</updated>
+  <updated>2019-01-14T07:18:13.628Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜狗</title>
+    <link href="http://yoursite.com/2019/01/14/%E6%90%9C%E7%8B%97/"/>
+    <id>http://yoursite.com/2019/01/14/搜狗/</id>
+    <published>2019-01-14T07:06:27.000Z</published>
+    <updated>2019-01-14T07:18:13.628Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搜狗"><a href="#搜狗" class="headerlink" title="搜狗"></a>搜狗</h1><p>标签（空格分隔）： 未分类</p><hr><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>1、两 数 组 中 值<br>2、两数 组第k 个 值</p><p>1、分辨率适配，resurse下面的文件夹对应的分辨率。<br>正常1080<em>1920,density=3.0的话取哪个文件夹下的图片。xh文件夹下100</em>100取出来的图片是多大的。<br>2、handler实现原理，loop为什么不会anr。点击操作是通过什么通知到主线程，最终怎么让主线程invalidate。时间分发中每一次move都会发送handler消息吗？<br>3、数据化持久存储有哪几种方式？什么样的情况下使用sharedprefence？shreareprefence有什么优缺点吗？有anr这种吗？加入异步操作apply很多，这样会有什么影响？还有其他问题吗？数据库频繁读取的话和sharedprefence比那个效率高？<br>4、使用数据库的时候有没有遇上读写效率够不够高？<br>5、contentprovider的生命周期，onCreate的执行时机是什么？<br>6、intentservice的特点是什么？不停的starservice，这个队列会重新创建吗？<br>7、android现有的实现动画有哪几种方式？实际应用中有做过动画吗？<br>8、系统优化这有做过什么实际的事情吗？<br>9、有遇到oom的问题吗？<br>10、给一个字符串判断是不是一个合法的iPv4地址？<br>11、alarm唤醒有什么特点？延迟规则是什么？怎么统一封装alarmmanager的？pendingintent怎么判断是不是同一个？<br>12、</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;搜狗&quot;&gt;&lt;a href=&quot;#搜狗&quot; class=&quot;headerlink&quot; title=&quot;搜狗&quot;&gt;&lt;/a&gt;搜狗&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 未分类&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>TopK</title>
@@ -494,27 +517,6 @@
     
     
       <category term="java源码解析" scheme="http://yoursite.com/tags/java%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android动画讲解</title>
-    <link href="http://yoursite.com/2018/01/29/Android%E5%8A%A8%E7%94%BB%E8%AE%B2%E8%A7%A3/"/>
-    <id>http://yoursite.com/2018/01/29/Android动画讲解/</id>
-    <published>2018-01-29T03:43:21.000Z</published>
-    <updated>2018-01-29T06:20:34.343Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Android动画讲解"><a href="#Android动画讲解" class="headerlink" title="#Android动画讲解"></a>#Android动画讲解</h2><p><img src="http://opq81riyh.bkt.clouddn.com/%E5%8A%A8%E7%94%BB.png" alt=""><br><img src="http://opq81riyh.bkt.clouddn.com/%E5%8A%A8%E7%94%BB.mindnode.zip" alt="333"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Android动画讲解&quot;&gt;&lt;a href=&quot;#Android动画讲解&quot; class=&quot;headerlink&quot; title=&quot;#Android动画讲解&quot;&gt;&lt;/a&gt;#Android动画讲解&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://opq81riyh.bkt.c
-      
-    
-    </summary>
-    
     
   </entry>
   
