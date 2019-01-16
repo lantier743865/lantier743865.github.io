@@ -303,6 +303,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/16/寻找两个有序数组的中位数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴晓龙">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://opq81riyh.bkt.clouddn.com/666.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/16/寻找两个有序数组的中位数/" itemprop="url">寻找两个有序数组的中位数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-16T20:19:23+08:00">
+                2019-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">package interview;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 这道题让我们求两个有序数组的中位数，而且限制了时间复杂度为O(log (m+n))，</span><br><span class="line">* 看到这个时间复杂度，自然而然的想到了应该使用二分查找法来求解。</span><br><span class="line">* 但是这道题被定义为Hard也是有其原因的，难就难在要在两个未合并的有序数组之间使用二分法，</span><br><span class="line">* 如果这道题只有一个有序数组，让我们求中位数的话，估计就是个Easy题。</span><br><span class="line">* 那么我们可以将两个有序数组混合起来成为一个有序数组再做吗，图样图森破，</span><br><span class="line">* 这个时间复杂度限制的就是告诉你金坷垃别想啦。那么我们还是要用二分法，</span><br><span class="line">* 而且是在两个数组之间使用，感觉很高端啊。那么回顾一下中位数的定义，</span><br><span class="line">* 如果某个有序数组长度是奇数，那么其中位数就是最中间那个，如果是偶数，</span><br><span class="line">* 那么就是最中间两个数字的平均值。这里对于两个有序数组也是一样的，</span><br><span class="line">* 假设两个有序数组的长度分别为m和n，由于两个数组长度之和 m+n 的奇偶不确定，</span><br><span class="line">* 因此需要分情况来讨论，对于奇数的情况，直接找到最中间的数即可，</span><br><span class="line">* 偶数的话需要求最中间两个数的平均值。为了简化代码，不分情况讨论，</span><br><span class="line">* 我们使用一个小trick，我们分别找第 (m+n+1) / 2 个，和 (m+n+2) / 2 个，</span><br><span class="line">* 然后求其平均值即可，这对奇偶数均适用。加入 m+n 为奇数的话，</span><br><span class="line">* 那么其实 (m+n+1) / 2 和 (m+n+2) / 2 的值相等，相当于两个相同的数字相加再除以2，还是其本身。</span><br><span class="line"></span><br><span class="line">好，这里我们需要定义一个函数来在两个有序数组中找到第K个元素，</span><br><span class="line">下面重点来看如何实现找到第K个元素。首先，为了避免产生新的数组从而增加时间复杂度，</span><br><span class="line">我们使用两个变量i和j分别来标记数组nums1和nums2的起始位置。</span><br><span class="line">然后来处理一些corner cases，比如当某一个数组的起始位置大于等于其数组长度时，</span><br><span class="line">说明其所有数字均已经被淘汰了，相当于一个空数组了，那么实际上就变成了在另一个数组中找数字，</span><br><span class="line">直接就可以找出来了。还有就是如果K=1的话，那么我们只要比较nums1和nums2的起始位置i和j上的数字就可以了。</span><br><span class="line">难点就在于一般的情况怎么处理？因为我们需要在两个有序数组中找到第K个元素，为了加快搜索的速度，</span><br><span class="line">我们要使用二分法，那么对谁二分呢，数组么？其实要对K二分，</span><br><span class="line">意思是我们需要分别在nums1和nums2中查找第K/2个元素，</span><br><span class="line">注意这里由于两个数组的长度不定，所以有可能某个数组没有第K/2个数字，所以我们需要先check一下，</span><br><span class="line">数组中到底存不存在第K/2个数字，如果存在就取出来，否则就赋值上一个整型最大值。</span><br><span class="line">如果某个数组没有第K/2个数字，那么我们就淘汰另一个数字的前K/2个数字即可。</span><br><span class="line">有没有可能两个数组都不存在第K/2个数字呢，这道题里是不可能的，因为我们的K不是任意给的，</span><br><span class="line">而是给的m+n的中间值，所以必定至少会有一个数组是存在第K/2个数字的。最后就是二分法的核心啦，</span><br><span class="line">比较这两个数组的第K/2小的数字midVal1和midVal2的大小，如果第一个数组的第K/2个数字小的话，</span><br><span class="line">那么说明我们要找的数字肯定不在nums1中的前K/2个数字，所以我们可以将其淘汰，</span><br><span class="line">将nums1的起始位置向后移动K/2个，并且此时的K也自减去K/2，调用递归。</span><br><span class="line">反之，我们淘汰nums2中的前K/2个数字，并将nums2的起始位置向后移动K/2个，</span><br><span class="line">并且此时的K也自减去K/2，调用递归即可，参见代码如下：</span><br><span class="line">*/</span><br><span class="line">public class Test11 &#123;</span><br><span class="line">static int findkTh(int[] arr1, int i, int[] arr2, int j, int k) &#123;</span><br><span class="line">if (i &gt;= arr1.length) &#123;</span><br><span class="line">return arr2[j+k-1];</span><br><span class="line">&#125;</span><br><span class="line">if (j &gt;= arr2.length) &#123;</span><br><span class="line">return arr1[i+k-1];</span><br><span class="line">&#125;</span><br><span class="line">if (k == 1) &#123;</span><br><span class="line">return Math.min(arr1[i],arr2[j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int mid1 = i+ k /2 -1 &lt; arr1.length ? arr1[i+ k /2 -1] : Integer.MAX_VALUE;</span><br><span class="line">int mid2 = j+ k /2 -1 &lt; arr2.length ? arr2[j+ k /2 -1] : Integer.MAX_VALUE;</span><br><span class="line">if (mid1 &lt; mid2) &#123;</span><br><span class="line">return findkTh(arr1,i+ k /2 ,arr2,j,k-k/2);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">return findkTh(arr1,i,arr2,j+k/2,k-k/2);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static double findMedian(int[] arr1,int[] arr2) &#123;</span><br><span class="line">int length1 = arr1.length;</span><br><span class="line">int length2 = arr2.length;</span><br><span class="line">int total = length1 + length2;</span><br><span class="line">int left = (total + 1) / 2 ;</span><br><span class="line">int right = (total + 2) / 2;</span><br><span class="line">int median1 = findkTh(arr1, 0, arr2, 0, left);</span><br><span class="line">int median2 = findkTh(arr1, 0, arr2, 0, right);</span><br><span class="line">System.out.println(left);</span><br><span class="line">System.out.println(right);</span><br><span class="line">System.out.println(median1);</span><br><span class="line">System.out.println(median2);</span><br><span class="line"></span><br><span class="line">return  (median1+ median2)/2.0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">int[] arr1 = &#123;1,3,5&#125;;</span><br><span class="line">int[] arr2 = &#123;2,4,7&#125;;</span><br><span class="line">//        int i = findkTh(arr1, 0, arr2, 0, 2);</span><br><span class="line">//        System.out.println(i);</span><br><span class="line">double median = findMedian(arr1, arr2);</span><br><span class="line">System.out.println(median);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/搜狗/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1473,128 +1592,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/学习心得/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴晓龙">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://opq81riyh.bkt.clouddn.com/666.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓龙">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/24/学习心得/" itemprop="url">学习心得</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T16:22:47+08:00">
-                2018-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>#以前觉得看视频学得快，其实真正获取知识还是要自己去思考</p>
-<p>标签（空格分隔）： 系统的静下心来学习</p>
-<hr>
-<p>系统的学习；<br>不沉迷于打广告挣外快；<br>有计划的学习；<br>锻炼抗压能力。<br>更有效的学习。<br>不跟随别人脚步，按照自己心意来；</p>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1647,7 +1644,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

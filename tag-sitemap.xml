@@ -44,13 +44,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-        <lastmod>2018-02-05T03:33:42.756Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/%E5%8F%8D%E6%80%9D/</loc>
         <lastmod>2018-02-07T02:41:01.387Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,6 +81,13 @@
     <url>
         <loc>http://yoursite.com/tags/android/</loc>
         <lastmod>2018-05-09T03:06:12.086Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+        <lastmod>2019-01-11T11:01:11.558Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
