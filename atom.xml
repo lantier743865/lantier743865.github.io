@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-19T00:25:17.659Z</updated>
+  <updated>2019-01-19T01:28:42.713Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>百度网盘</title>
+    <link href="http://yoursite.com/2019/01/19/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    <id>http://yoursite.com/2019/01/19/百度网盘/</id>
+    <published>2019-01-19T01:28:24.000Z</published>
+    <updated>2019-01-19T01:28:42.713Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="百度网盘"><a href="#百度网盘" class="headerlink" title="百度网盘"></a>百度网盘</h1><p>标签（空格分隔）： 未分类</p><hr><p>一面<br>1、数据层重构大概都做了哪些方面？<br>2、java的内存回收机制<br>3、开发android中有遇到内存问题吗，比如内存泄漏的问题？<br>4、线程同步有哪些方式？线程同步到通知机制？讲讲asynctask的原理<br>5、开发中用到哪些开发模式？<br>6、平常用的MVP吗？知道mvvm吗？mvvm中livedata了解过吗？<br>7、activity启动模式和activity栈。<br>8、loadermanager，cursorloder，contentprovide和db这些是怎么串在一起用的？<br>9、开发的时候有遇到数据库并发的问题吗？了解wal模式吗？数据库的锁是读写都锁吗？数据库读写互锁？sql语句的，查出参加过三门考试并且成绩在80分以上的人的名字？（groupby having）<br>10、用到过android的进程间通信吗？有几种方式？了解aidl的原理吗？<br>11、你们的迭代周期是怎么样的？了解项目的整个流程吗？团队一起开发的rd团队多少人？<br>12、你觉得你最擅长哪些方面的技术？你后续在android哪方面想发展呢？</p><p>二面<br>1、简单做个项目介绍。<br>2、长轮询实现白板，简单说下。绘制采用什么技术？没使用长连接是为什么，长连接有什么问题吗？简单描述你们用的长连接协议，有考虑用tcp的soket之恋吗？长轮训是定期轮询吗？http协议和tcp协议有什么区别？tcp三次握手？<br>3、一面你觉得最有难度的题是啥？<br>4、做一个付费界面的下载通知界面，包括数据库，画出架构图，用到哪些类，分别是什么作用，sql语句，采用mvp的话哪些在prester里？<br>5、开发流程是什么样的？设计阶段都做什么？<br>6、开发用mvp还是？mvp，mvc和mvvm三者的区别，你觉得刚刚设计的这个项目采用哪种比较合适？<br>7、业务建模了解过吗？<br>8、kotlin怎么样？fluuter怎么样？<br>9、设计模式有了解过吗？讲下责任链模式，画一下uml图。<br>10、你们小米邮箱用户数据怎么存储的。<br>11、你们的界面用的是cursoradapter显示的吗？简单说下cursorloader机制？<br>12、你这边处理过过度绘制，从发现过度绘制到修复过度绘制怎么做的？</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;百度网盘&quot;&gt;&lt;a href=&quot;#百度网盘&quot; class=&quot;headerlink&quot; title=&quot;百度网盘&quot;&gt;&lt;/a&gt;百度网盘&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 未分类&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一面&lt;br&gt;1、数据层重构大概都做了哪些方面？&lt;br&gt;2、java的内存
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>腾讯</title>
@@ -485,32 +508,6 @@
     
     
       <category term="java面试" scheme="http://yoursite.com/tags/java%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反思自己身上的毛病</title>
-    <link href="http://yoursite.com/2018/02/07/%E5%8F%8D%E6%80%9D%E8%87%AA%E5%B7%B1%E8%BA%AB%E4%B8%8A%E7%9A%84%E6%AF%9B%E7%97%85/"/>
-    <id>http://yoursite.com/2018/02/07/反思自己身上的毛病/</id>
-    <published>2018-02-07T02:40:10.000Z</published>
-    <updated>2018-02-07T02:41:01.387Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="反思自己身上的毛病"><a href="#反思自己身上的毛病" class="headerlink" title="反思自己身上的毛病"></a>反思自己身上的毛病</h1><hr><p>数据结构和算法一知半解，一个平常的排序和合并都手写不出来，讲到源码也是停留于皮毛，view的事件分发这种东西，也能讲个人云亦云，究其根源，说不上来。android中有很多framwork层的东西，都没有好好去看，平常工作不努力，机会来了总是抓不住。每天都期盼明天开始努力，却总是明日复明日。<br>jvm被问到就是一头雾水，锁也不知道，多线程不熟悉，新事物出现不去学习，心思总不在工作和学习上，还老爱装逼。。。。<br>  真的，人不反思不知道自己有多可恶，什么都不会还不去学习，静不下心，每天都是悔恨自己不努力，却又不停浪费时间。看了其他人的博客，才知道自己有多懒惰，只接受填鸭式的知识，很少去举一反三，问问为什么这样。</p><p>  感觉这几天真的在经历价值观的重建。希望前30年努力，不要在后30年后悔。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;反思自己身上的毛病&quot;&gt;&lt;a href=&quot;#反思自己身上的毛病&quot; class=&quot;headerlink&quot; title=&quot;反思自己身上的毛病&quot;&gt;&lt;/a&gt;反思自己身上的毛病&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;数据结构和算法一知半解，一个平常的排序和合并都手写不出来，讲到源码也是停留
-      
-    
-    </summary>
-    
-      <category term="反思" scheme="http://yoursite.com/categories/%E5%8F%8D%E6%80%9D/"/>
-    
-    
-      <category term="反思" scheme="http://yoursite.com/tags/%E5%8F%8D%E6%80%9D/"/>
     
   </entry>
   
