@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-19T01:28:42.713Z</updated>
+  <updated>2019-02-25T07:46:33.886Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>智融集团</title>
+    <link href="http://yoursite.com/2019/02/25/%E6%99%BA%E8%9E%8D%E9%9B%86%E5%9B%A2/"/>
+    <id>http://yoursite.com/2019/02/25/智融集团/</id>
+    <published>2019-02-25T07:46:06.000Z</published>
+    <updated>2019-02-25T07:46:33.886Z</updated>
+    
+    <content type="html"><![CDATA[<p>标签（空格分隔）： 面试</p><hr><p>#技术面<br>1、hashmap大概是一个什么样的实现机制？触发树为了解决什么样的问题？红黑树插入一个树产生了不平衡怎么保证它的平衡性呢？<br>2、android中有sparsearray中怎么实现的？<br>3、parseable和serriliable有什么差异？<br>4、binder机制大概什么样子的？<br>5、nestidescroll在事件分发做了什么事情？cooperlationlayout根据下面滑动展示是锁起还是展开，如果是自己做怎么做？<br>6、你们适配做了哪些工作呀？<br>7、surfaceview和普通view有啥区别呀？<br>8、简单介绍下简单工厂和抽象工厂？<br>9、主要用mvp？了解mvvm吗？<br>10、retrofit基于okhttp实现，注解和反射有什么区别？<br>11、EventBus整个事件你们是怎么管理的？<br>12、大致介绍一下loadermanager？<br>13、WPS邮箱在线上的crash率是多少？<br>14、性能优化怎么做的？电量优化<br>15、relativelayout中一个view从一个位置挪到另一个位置后，对于其他view来说，他们的视图会跟着走吗？从layout和measure来说，他们的坐标会变吗？<br>16、其他还有那些地方是你比较擅长还没聊到的？<br>17、你对我们这边有什么想了解的？<br>hr面：<br>1、在职还是离职？<br>2、为什么离开呢？<br>3、那你是裸辞吗？<br>4、你会看重哪些点呢？<br>5、你觉得哪里不合适？<br>6、上一家公司为什么离开？上上一家。。上上上。。<br>7、很多细节问题，打听别的公司offer，打听薪资，各种认识谁谁不？你们关系。。。之类的<br>8、还有什么想问的呢？offer你的话，来的概率有多少呢？</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;标签（空格分隔）： 面试&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;#技术面&lt;br&gt;1、hashmap大概是一个什么样的实现机制？触发树为了解决什么样的问题？红黑树插入一个树产生了不平衡怎么保证它的平衡性呢？&lt;br&gt;2、android中有sparsearray中怎么实现的？&lt;br&gt;3、par
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>百度网盘</title>
@@ -482,32 +505,6 @@
     
     
       <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java面试题一</title>
-    <link href="http://yoursite.com/2018/02/08/java%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%80/"/>
-    <id>http://yoursite.com/2018/02/08/java面试题一/</id>
-    <published>2018-02-08T14:34:38.000Z</published>
-    <updated>2018-02-08T14:43:00.446Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="java面试题一"><a href="#java面试题一" class="headerlink" title="java面试题一"></a>java面试题一</h1><hr><p>###来看一道面试题，大家看看结果是多少？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x ,y;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        x--;</span><br><span class="line">        myMethod();</span><br><span class="line">        System.out.println(x + y++ + x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        y = x++ + ++x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="先不要看答案"><a href="#先不要看答案" class="headerlink" title="先不要看答案"></a>先不要看答案</h3><p>分析过程，static代码块中的是局部变量，所以是下x，y都是0；<br>main方法中x–后，执行mythod，此时x是-1，<br>执行x++后x++仍然是-1，然后此时x是0，再执行++x，那么++x是1，<br>那么y= -1+1=0；<br>于是x是1，y是0；<br>那么system.out.println中是1+0+1=2；<br>最终结果是2.</p><p>这道题很常见，却也很容易做错，大家体会考到的知识点。</p><p>不同的类加载器分别创建的同一个类的字节码数据属于完全不同的对象，没有任何关联。<br>当运行一个程序的时候，jvm启动，运行bootstrap classloader，该classloader加载java核心api（extclassloader和appclassloader也在此时被加载），然后调用extclassloader加载扩展api，最后appclassloader加载classpath目录下定义的class，这就是一个程序最基本的加载流程。<br>类加载过程使用父类委托模式，这样有三个原因：</p><ol><li>这样可以避免重复加载。</li><li>安全因素，防止加载自定义的classloader</li><li>一些重要的方法</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;java面试题一&quot;&gt;&lt;a href=&quot;#java面试题一&quot; class=&quot;headerlink&quot; title=&quot;java面试题一&quot;&gt;&lt;/a&gt;java面试题一&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;###来看一道面试题，大家看看结果是多少？&lt;br&gt;&lt;figure class=&quot;h
-      
-    
-    </summary>
-    
-      <category term="java面试" scheme="http://yoursite.com/categories/java%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="java面试" scheme="http://yoursite.com/tags/java%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
